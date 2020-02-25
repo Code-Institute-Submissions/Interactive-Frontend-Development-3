@@ -1,17 +1,3 @@
-@font-face {
-    font-family: "front";
-    src: url("assests/fonts/front.woff") format("woff"), url("assests/fonts/front.woff2") format("woff2")
-}
-
-@font-face {
-    font-family: "back";
-    src: url("assests/fonts/back.woff") format("woff"), url("assests/fonts/back.woff2") format("woff2")
-}
-
-* {
-    box-sizing: border-box;
-}
-
 html {
     min-height: 100vh;
 }
@@ -87,6 +73,67 @@ transform: rotateY(-180deg);
     transform: rotateY(0)
 }
 
-.card-back:hover {
+.card.matched .card-value {
+animation: dance 1s linear infinite 500ms;
+}
+
+.overlay-text {
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: black;
+}
+
+.overlay-text-small {
+    font-size: .3em;
+}
+
+.overlay-text.visible {
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+}
+
+@keyframes overlay-grow {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+    }
+    to {
+        background-color: rgba(0, 0, 0, .8);
+        font-size: 10em;
+    }
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(-30deg);
+    }
+    75% {
+        transform: rotate(30deg);
+    }
+}
+
+.card-back {
     transform: translateY(0)
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        grid-template: repeat(2, auto);
+    }
+
+    .game-info-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
