@@ -1,4 +1,4 @@
-class Memory Game {
+class Memory {
 constructor (totalTime, cards) {
     this.cardsArray = cards;
     this.totalTime = totalTime;
@@ -42,8 +42,8 @@ canFlipCard(card) {
 
 function ready() {
     let overlays = Array.from(document.getElementsByClassName('overlay-text'));
-    let cards = Array.from(document.getElementsByClassName('card' ));
-    let game = new Memory Game(100, cards);
+    let cards = Array.from(document.getElementsByClassName('card'));
+    let game = new Memory(100, cards);
     overlays.forEach(overlay => {
         overlay.addEventListener('click', () => {
             overlay.classList.remove('visible');
