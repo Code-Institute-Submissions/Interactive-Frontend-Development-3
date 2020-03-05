@@ -66,7 +66,7 @@ setTimeout(() => {
 }, 1000);
 }
 getCardType(card) {
-return card.getElementsByClassName('card-value')[0].src;
+    return card.childNodes[3].childNodes[1].src;
 }
 StartCountDown() {
     return setInterval(() => {
@@ -88,7 +88,7 @@ winner () {
 
 shuffleCards() {
     for(let i = this.cardsArray.length -1; i > 0; i--) {
-       let randIndex = Match.floor(Math.random() * (i+1));
+       let randIndex = Math.floor(Math.random() * (i+1));
        this.cardsArray[randIndex].style.order = i;
        this.cardsArray[i].style.order = randIndex;
     }
