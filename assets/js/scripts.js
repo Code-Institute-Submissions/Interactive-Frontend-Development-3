@@ -83,7 +83,7 @@ gameOver () {
 }
 winner () {
     clearInterval(this.countDown);
-    document.getElementById('winner-text').classList.add('visible')
+    document.getElementById('Winner-text').classList.add('visible')
 }
 
 shuffleCards() {
